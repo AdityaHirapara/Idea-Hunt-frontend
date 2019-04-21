@@ -12,13 +12,16 @@ class ProtectedRoute extends Component {
 
   componentWillMount() {
     let token = localStorage.getItem('token');
+    console.log(token);
     if (!token) {
+      console.log(token);
       this.setState({isAuthenticated: false});
     }
   }
 
   render() {
     const { component, ...rest } = this.props;
+    const Component = this.props.component;
 
     return (
       <Route
