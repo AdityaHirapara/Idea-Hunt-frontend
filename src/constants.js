@@ -1,3 +1,3 @@
 module.exports = {
-  apiUrl: "http://localhost:3030/"
+  apiUrl: "https://idea-hunt-server.herokuapp.com/"
 }
