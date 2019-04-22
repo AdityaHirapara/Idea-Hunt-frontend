@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/idea-hunt-frontend/precache-manifest.4f3355c10fd5057d336deca2872f3dff.js"
+  "/idea-hunt-frontend/precache-manifest.8de71ece20e2abe588f0037d567d0575.js"
 );
 
 workbox.clientsClaim();

@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/idea-hunt-frontend/static/css/main.3f6d1d35.chunk.css"
   },
   {
-    "revision": "2e36177dc2783f99842a2cae8f6a2f27",
+    "revision": "df1a3e830a851f2ce2c50526838b8b72",
     "url": "/idea-hunt-frontend/index.html"
   }
 ];
