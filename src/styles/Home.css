@@ -1,8 +1,16 @@
+.main {
+  padding: 10px 5%;
+}
+
 .item-container {
   line-height: 20px;
   margin: 20px;
   margin-bottom: 20px;
   border-bottom: 0.5px solid #d7d7d7;
+}
+
+h2 {
+  font-weight: 400;
 }
 
 .body-preview {
@@ -60,4 +68,10 @@
 .comment-author {
   font-size: 18px;
   margin-bottom: 5px;
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding: 0px;
+  }
 }

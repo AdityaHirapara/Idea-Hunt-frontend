@@ -49,7 +49,9 @@ class Idea extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
       let idea = responseJson.idea;
-      this.setState({idea});
+      let i = this.state.idea;
+      i.upvotes = idea.upvotes;
+      this.setState({idea: i});
     })
     .catch((e) => {
       console.log(e);
@@ -75,7 +77,9 @@ class Idea extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
       let idea = responseJson.idea;
-      this.setState({idea});
+      let i = this.state.idea;
+      i.comments = idea.comments;
+      this.setState({idea: i});
     })
     .catch((e) => {
       console.log(e);
@@ -91,7 +95,7 @@ class Idea extends Component {
     let body = idea.body.split("<br />");
 
     return (
-      <div>
+      <div className="main">
         <div className="item-container">
           <div>
             <h2>{idea.title}</h2>

@@ -1,7 +1,7 @@
 .Login {
   background: url(../static/bg2.jpg) top;
   background-size: cover;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 84px);
   position: absolute;
   width: 100%;
   -webkit-transition: 0.5s;
