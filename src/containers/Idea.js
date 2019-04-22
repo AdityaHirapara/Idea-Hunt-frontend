@@ -30,7 +30,6 @@ class Idea extends Component {
     .then((responseJson) => {
       let idea = responseJson.idea;
       this.setState({idea});
-      console.log(idea)
     })
     .catch((e) => {
       console.log(e);

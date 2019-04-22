@@ -29,7 +29,6 @@ class Home extends Component {
     .then((responseJson) => {
       let ideaList = responseJson.ideaList;
       this.setState({ideaList});
-      console.log(ideaList)
     })
     .catch((e) => {
       console.log(e);

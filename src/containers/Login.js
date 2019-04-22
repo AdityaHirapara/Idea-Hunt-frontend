@@ -41,7 +41,6 @@ class Login extends Component {
       let token = responseJson.token;
       localStorage.setItem('token', token);
       localStorage.setItem('username', this.state.username);
-      console.log(localStorage.getItem('token'))
       if (token) {
         window.location.href = '../';
       }

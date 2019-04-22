@@ -57,8 +57,6 @@ class Idea extends Component {
   }
  
   render() {
-    const { title, body } = this.state;
-
     return (
       <div>
         <div className="idea-form">

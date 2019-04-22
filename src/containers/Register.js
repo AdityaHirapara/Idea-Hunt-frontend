@@ -57,7 +57,6 @@ class Register extends Component {
         if (token) {
           window.location.href = '../';
         }
-        console.log(responseJson);
       })
       .catch((e) => {
         console.log(e);

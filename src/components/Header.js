@@ -58,7 +58,6 @@ class Header extends Component {
         this.setState({isAuthenticated: false});
         window.location.reload();
       }
-      console.log(responseJson);
     })
     .catch((e) => {
       console.log(e);
