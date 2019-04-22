@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/idea-hunt-frontend/precache-manifest.8de71ece20e2abe588f0037d567d0575.js"
+  "/Idea-Hunt-frontend/precache-manifest.2dacb10fbcab114937f5c89245856e1c.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/idea-hunt-frontend/index.html", {
+workbox.routing.registerNavigationRoute("/Idea-Hunt-frontend/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

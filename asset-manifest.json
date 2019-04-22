@@ -1,14 +1,14 @@
 {
-  "main.css": "/idea-hunt-frontend/static/css/main.3f6d1d35.chunk.css",
-  "main.js": "/idea-hunt-frontend/static/js/main.575b2ca9.chunk.js",
-  "main.js.map": "/idea-hunt-frontend/static/js/main.575b2ca9.chunk.js.map",
-  "runtime~main.js": "/idea-hunt-frontend/static/js/runtime~main.783c5050.js",
-  "runtime~main.js.map": "/idea-hunt-frontend/static/js/runtime~main.783c5050.js.map",
-  "static/js/2.9573cec2.chunk.js": "/idea-hunt-frontend/static/js/2.9573cec2.chunk.js",
-  "static/js/2.9573cec2.chunk.js.map": "/idea-hunt-frontend/static/js/2.9573cec2.chunk.js.map",
-  "index.html": "/idea-hunt-frontend/index.html",
-  "precache-manifest.8de71ece20e2abe588f0037d567d0575.js": "/idea-hunt-frontend/precache-manifest.8de71ece20e2abe588f0037d567d0575.js",
-  "service-worker.js": "/idea-hunt-frontend/service-worker.js",
-  "static/css/main.3f6d1d35.chunk.css.map": "/idea-hunt-frontend/static/css/main.3f6d1d35.chunk.css.map",
-  "static/media/Login.css": "/idea-hunt-frontend/static/media/bg2.033aa169.jpg"
+  "main.css": "/Idea-Hunt-frontend/static/css/main.2f61a9a0.chunk.css",
+  "main.js": "/Idea-Hunt-frontend/static/js/main.ab791544.chunk.js",
+  "main.js.map": "/Idea-Hunt-frontend/static/js/main.ab791544.chunk.js.map",
+  "runtime~main.js": "/Idea-Hunt-frontend/static/js/runtime~main.89b0bf2e.js",
+  "runtime~main.js.map": "/Idea-Hunt-frontend/static/js/runtime~main.89b0bf2e.js.map",
+  "static/js/2.9573cec2.chunk.js": "/Idea-Hunt-frontend/static/js/2.9573cec2.chunk.js",
+  "static/js/2.9573cec2.chunk.js.map": "/Idea-Hunt-frontend/static/js/2.9573cec2.chunk.js.map",
+  "index.html": "/Idea-Hunt-frontend/index.html",
+  "precache-manifest.2dacb10fbcab114937f5c89245856e1c.js": "/Idea-Hunt-frontend/precache-manifest.2dacb10fbcab114937f5c89245856e1c.js",
+  "service-worker.js": "/Idea-Hunt-frontend/service-worker.js",
+  "static/css/main.2f61a9a0.chunk.css.map": "/Idea-Hunt-frontend/static/css/main.2f61a9a0.chunk.css.map",
+  "static/media/Login.css": "/Idea-Hunt-frontend/static/media/bg2.033aa169.jpg"
 }
