@@ -19,18 +19,18 @@ class Idea extends Component {
   }
 
   handleBodyChange(e) {
-    this.setState({body: e.target.value});
+    this.setState({body: e.target.value, message: ""});
   }
 
   handleTitleChange(e) {
-    this.setState({title: e.target.value});
+    this.setState({title: e.target.value, message: ""});
   }
 
   create() {
     if (!this.state.title.trim()) {
-      this.state.message = "Give your idea a good title!";
+      this.setState({message: "Give your idea a good title!"});
     } else if (!this.state.body.trim()) {
-      this.state.message = "Describe your idea!";
+      this.setState({message: "Describe your idea!"});
     } else {
       let body = this.state.body.replace(/\r?\n/g, '<br />');
       let url = apiUrl + 'ideas/post/';
@@ -62,6 +62,12 @@ class Idea extends Component {
         <div className="idea-form">
           <input type="text" className="editor-input editor-title" placeholder="Title..." onChange={this.handleTitleChange.bind(this)}/>
           <textarea type="text-area" rows={20} className="editor-input" placeholder="Tell us more about it..." onChange={this.handleBodyChange.bind(this)}/>
+          {
+            this.state.message &&
+            <div className="error error-margin">
+              {this.state.message}
+            </div>
+          }
           <div className="button-container">
             <Button label={"POST"} type="primary" onClick={this.create.bind(this)}/>
           </div>

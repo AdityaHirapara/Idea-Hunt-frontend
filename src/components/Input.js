@@ -15,7 +15,7 @@ class Input extends Component {
         {
           icon &&
           <div className="icon">
-            <img height={30} src={icon}/>
+            <img height={30} src={icon} alt={"icon"}/>
           </div>
         }
         <input

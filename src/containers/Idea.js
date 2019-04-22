@@ -62,27 +62,29 @@ class Idea extends Component {
   }
 
   addComment() {
-    let url = apiUrl + 'ideas/comment/' + this.state.idea._id;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + this.state.token
-      },
-      body: JSON.stringify({
-        body: this.state.comment
+    if (this.state.comment.trim()) {
+      let url = apiUrl + 'ideas/comment/' + this.state.idea._id;
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + this.state.token
+        },
+        body: JSON.stringify({
+          body: this.state.comment
+        })
       })
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      let idea = responseJson.idea;
-      let i = this.state.idea;
-      i.comments = idea.comments;
-      this.setState({idea: i});
-    })
-    .catch((e) => {
-      console.log(e);
-    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let idea = responseJson.idea;
+        let i = this.state.idea;
+        i.comments = idea.comments;
+        this.setState({idea: i});
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+    }
   }
  
   render() {

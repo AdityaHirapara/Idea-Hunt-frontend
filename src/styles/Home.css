@@ -18,6 +18,18 @@ h2 {
   overflow: hidden;
 }
 
+.error-margin {
+  margin: 10px 20px;
+}
+
+.error {
+  padding: 10px 20px;
+  color: #b72121;
+  background-color: #fbaeae;
+  border-radius: 5px;
+  width: fit-content;
+}
+
 .metadata {
   padding-right: 20px;
   padding-top: 15px;
