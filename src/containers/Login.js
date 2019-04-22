@@ -43,7 +43,7 @@ class Login extends Component {
       localStorage.setItem('username', this.state.username);
       console.log(localStorage.getItem('token'))
       if (token) {
-        window.location.reload();
+        window.location.href = '../';
       }
     })
     .catch((e) => {

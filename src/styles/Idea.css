@@ -1,0 +1,25 @@
+.editor-input {
+  border: 0px;
+  font-size: 16px;
+  padding: 10px 15px;
+  font-family: Arial;
+  width: -webkit-fill-available;
+  margin: 1.7rem 1rem 0.15rem;
+}
+
+.editor-title {
+  color: #1c1e29;
+  letter-spacing: -.5px;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+.editor-input:focus {
+  outline: none;
+  border: 0px;
+}
+
+.button-container {
+  display: flex;
+  margin: 1rem;
+}

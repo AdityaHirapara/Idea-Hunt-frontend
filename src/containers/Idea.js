@@ -88,6 +88,7 @@ class Idea extends Component {
       return "Loading";
     }
     let upvoted = idea.upvotes.find(i => i.username == username);
+    let body = idea.body.split("<br />");
 
     return (
       <div>
@@ -95,7 +96,9 @@ class Idea extends Component {
           <div>
             <h2>{idea.title}</h2>
             <div className="body">
-              {idea.body}
+              {body.map(p => 
+                <p>{p}</p>
+              )}
             </div>
           </div>
           <div className="metadata">
@@ -104,7 +107,8 @@ class Idea extends Component {
               <div className="upvote-text">{idea.upvotes.length}</div>
             </div>
             <div>
-              <h3 className="author">By {idea.author.username}</h3>
+              <div className="author">By {idea.author.username}</div>
+              <div className="date">{idea.date}</div>
             </div>
           </div>
         </div>
@@ -116,12 +120,19 @@ class Idea extends Component {
           {
             idea.comments.map(comment => 
               <div className="comment-container">
+                <div className="right-date date">{comment.date}</div>
                 <div className="comment-author thin">{comment.author.username}</div>
                 <div>
                   {comment.body}
                 </div>
               </div>
             )
+          }
+          {
+            !idea.comments.length &&
+            <div className="comment-container">
+              Be first to comment!
+            </div>
           }
         </div>
       </div>

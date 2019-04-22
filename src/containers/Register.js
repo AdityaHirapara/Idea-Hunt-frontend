@@ -55,7 +55,7 @@ class Register extends Component {
         localStorage.setItem('token', token);
         localStorage.setItem('username', this.state.username);
         if (token) {
-          window.location.reload();
+          window.location.href = '../';
         }
         console.log(responseJson);
       })

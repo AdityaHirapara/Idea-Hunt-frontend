@@ -22,8 +22,29 @@
   display: flex;
 }
 
+.user-icon {
+  border-radius: 50%;
+  height: 35px;
+  margin-right: 5px;
+  border: 3px solid #fff;
+}
+
+.seperator {
+  border: 0.5px solid white;
+  margin: -18px 10px;
+}
+
 @media (max-width: 767px) {
   .title {
     display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .user-icon {
+    display: none;
+  }
+  .seperator {
+    margin: -18px 5px;
   }
 }

@@ -1,23 +1,24 @@
 import React, { Component } from "react";
+import "../styles/User.css";
 import Link from "../components/Link";
-import "../styles/Home.css";
+import Button from "../components/Button";
 import upvote from "../static/upvote.png";
 import upvote_a from "../static/upvote-a.png";
 import { apiUrl } from "../constants";
 
-class Home extends Component {
+class Idea extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ideaList: []
+      user: null
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let token = localStorage.getItem('token');
     let username = localStorage.getItem('username');
     this.setState({token, username});
-    let url = apiUrl + 'ideas/get';
+    let url = apiUrl + 'user/info/' + this.props.match.params.id;
     fetch(url, {
       method: "GET",
       headers: {
@@ -27,9 +28,9 @@ class Home extends Component {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      let ideaList = responseJson.ideaList;
-      this.setState({ideaList});
-      console.log(ideaList)
+      let user = responseJson;
+      this.setState({user});
+      console.log(user)
     })
     .catch((e) => {
       console.log(e);
@@ -48,10 +49,10 @@ class Home extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
       let idea = responseJson.idea;
-      let ideaList = this.state.ideaList;
-      let index = ideaList.findIndex(i => i._id == idea._id);
-      ideaList[index].upvotes = idea.upvotes;
-      this.setState({ideaList});
+      let ideas = this.state.user.ideas;
+      let index = ideas.findIndex(i => i._id == idea._id);
+      ideas[index].upvotes = idea.upvotes;
+      this.setState({user: {...this.state.user, ideas}});
     })
     .catch((e) => {
       console.log(e);
@@ -59,11 +60,41 @@ class Home extends Component {
   }
  
   render() {
-    const { ideaList, username } = this.state;
+    const { user, username } = this.state;
+    if (!user) {
+      return "Loading";
+    }
+
     return (
       <div>
+        <div className="user-card">
+          <h2 className={"user-title"}>{user.username}</h2>
+          <div className="detail-container">
+            <div className="field">
+              <div className="label">Email</div>
+              {user.email}
+            </div>
+            <div className="field">
+              <div className="label">Joined on</div>
+              {user.joining}
+            </div>
+          </div>
+        </div>
+        <div className="user-card">
         {
-          ideaList.map((idea) => {
+          !user.ideas.length &&
+          <div className="center">{username == user.username? "You have": user.username + " has"} not added any ideas yet!</div>
+        }
+        {
+          username == user.username &&
+          <div className="user-button">
+            <Link to={'/new'}>
+              <Button label={"ADD IDEA"} type="primary" onClick={()=>{}}/>
+            </Link>
+          </div>
+        }
+        {
+          user.ideas.map((idea) => {
             let upvoted = idea.upvotes.find(i => i.username == username);
             return <div className="item-container" key={idea._id}>
               <Link to={'/idea/' + idea._id}>
@@ -89,9 +120,10 @@ class Home extends Component {
             </div>
           })
         }
+        </div>
       </div>
     );
   }
 }
 
-export default Home;
+export default Idea;
