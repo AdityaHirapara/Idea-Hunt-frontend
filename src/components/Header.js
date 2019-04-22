@@ -36,6 +36,7 @@ class Header extends Component {
       if (responseJson.success) {
         localStorage.removeItem('token');
         this.setState({isAuthenticated: false});
+        window.location.reload();
       }
       console.log(responseJson);
     })

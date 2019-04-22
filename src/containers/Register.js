@@ -13,8 +13,7 @@ class Register extends Component {
     this.state = {
       username: "",
       password: "",
-      email: "",
-      isAuthenticated: false
+      email: ""
     }
   }
 
@@ -28,13 +27,6 @@ class Register extends Component {
 
   handlePasswordInput(value) {
     this.setState({ password: value});
-  }
-
-  componentWillMount() {
-    let token = localStorage.getItem('token');
-    if (token) {
-      this.setState({isAuthenticated: true});
-    }
   }
 
   registerUser() {
@@ -61,8 +53,9 @@ class Register extends Component {
       .then((responseJson) => {
         let token = responseJson.token;
         localStorage.setItem('token', token);
+        localStorage.setItem('username', this.state.username);
         if (token) {
-          this.setState({ isAuthenticated: true });
+          window.location.reload();
         }
         console.log(responseJson);
       })
@@ -73,10 +66,7 @@ class Register extends Component {
   }
  
   render() {
-    const { username, email, password, isAuthenticated } = this.state;
-    const { from } = this.props.location.state || {from: { pathname: "/" }};
-
-    if (isAuthenticated) return <Redirect to={from} />;
+    const { username, email, password } = this.state;
 
     return (
       <div>

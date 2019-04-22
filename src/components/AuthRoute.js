@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 
-class ProtectedRoute extends Component {
+class AuthRoute extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAuthenticated: true
+      isAuthenticated: false
     }
   }
 
   componentWillMount() {
     let token = localStorage.getItem('token');
-    console.log(token);
-    if (!token) {
-      console.log(token);
-      this.setState({isAuthenticated: false});
+    if (token) {
+      this.setState({isAuthenticated: true});
     }
   }
 
@@ -26,15 +24,10 @@ class ProtectedRoute extends Component {
       <Route
       {...rest}
       render={props =>
-        this.state.isAuthenticated ? (
+        !this.state.isAuthenticated ? (
           <Component {...props} />
         ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location }
-            }}
-          />
+          <Redirect to={{ pathname: "/" }} />
         )
       }
     />
@@ -42,4 +35,4 @@ class ProtectedRoute extends Component {
   }
 }
 
-export default ProtectedRoute;
+export default AuthRoute;

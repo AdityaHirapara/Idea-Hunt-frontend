@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Link from "../components/Link";
+import Button from "../components/Button";
 import "../styles/Home.css";
 import upvote from "../static/upvote.png";
 import upvote_a from "../static/upvote-a.png";
@@ -9,7 +9,8 @@ class Idea extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idea: null
+      idea: null,
+      comment: ""
     }
   }
 
@@ -54,6 +55,32 @@ class Idea extends Component {
       console.log(e);
     })
   }
+
+  handleCommentChange(e) {
+    this.setState({comment: e.target.value});
+  }
+
+  addComment() {
+    let url = apiUrl + 'ideas/comment/' + this.state.idea._id;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + this.state.token
+      },
+      body: JSON.stringify({
+        body: this.state.comment
+      })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      let idea = responseJson.idea;
+      this.setState({idea});
+    })
+    .catch((e) => {
+      console.log(e);
+    })
+  }
  
   render() {
     const { idea, username } = this.state;
@@ -80,6 +107,22 @@ class Idea extends Component {
               <h3 className="author">By {idea.author.username}</h3>
             </div>
           </div>
+        </div>
+        <div className="comment-section">
+          <h3 className="thin">Comment</h3>
+          <textarea type="text-area" rows={3} className="input" placeholder="comment here..." onChange={this.handleCommentChange.bind(this)}/>
+          <Button label={"comment"} type="primary" onClick={this.addComment.bind(this)}/>
+          <h3 className="thin">Comments</h3>
+          {
+            idea.comments.map(comment => 
+              <div className="comment-container">
+                <div className="comment-author thin">{comment.author.username}</div>
+                <div>
+                  {comment.body}
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
     );

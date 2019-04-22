@@ -10,6 +10,7 @@ import Home from './containers/Home';
 import Idea from './containers/Idea';
 
 import ProtectedRoute from './components/ProtectedRoute';
+import AuthRoute from './components/AuthRoute';
 import Header from './components/Header';
 import './styles/App.css';
 
@@ -22,8 +23,8 @@ class App extends Component {
 
           <ProtectedRoute exact path="/" component={Home}/>
           <ProtectedRoute exact path="/idea/:id" component={Idea}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/register" component={Register}/>
+          <AuthRoute path="/login" component={Login}/>
+          <AuthRoute path="/register" component={Register}/>
         </div>
       </Router>
     );

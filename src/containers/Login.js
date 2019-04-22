@@ -12,8 +12,7 @@ class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: "",
-      isAuthenticated: false
+      password: ""
     }
   }
 
@@ -23,13 +22,6 @@ class Login extends Component {
 
   handlePasswordInput(value) {
     this.setState({ password: value})
-  }
-
-  componentWillMount() {
-    let token = localStorage.getItem('token');
-    if (token) {
-      this.setState({isAuthenticated: true});
-    }
   }
 
   loginUser() {
@@ -51,9 +43,8 @@ class Login extends Component {
       localStorage.setItem('username', this.state.username);
       console.log(localStorage.getItem('token'))
       if (token) {
-        this.setState({ isAuthenticated: true });
+        window.location.reload();
       }
-      console.log(responseJson);
     })
     .catch((e) => {
       console.log(e);
@@ -61,20 +52,18 @@ class Login extends Component {
   }
  
   render() {
-    const { username, password, isAuthenticated } = this.state;
+    const { username, password } = this.state;
 
-    if (isAuthenticated) return <Redirect to={{ pathname: "/" }} />;
-
-    return (
-      <div>
-        <div className={"Login"}></div>
-        <FormContainer title="LOG IN">
-          <Input label="Username" placeholder="Username" value={username} type="text" onChange={this.handleUsernameInput.bind(this)} required={true}/>
-          <Input label="Password" placeholder="Password" value={password} type="password" onChange={this.handlePasswordInput.bind(this)} required={true}/>
-          <Button label="LOG IN" onClick={this.loginUser.bind(this)} type="primary"/>
-        </FormContainer>
-      </div>
-    );
+      return (
+        <div>
+          <div className={"Login"}></div>
+          <FormContainer title="LOG IN">
+            <Input label="Username" placeholder="Username" value={username} type="text" onChange={this.handleUsernameInput.bind(this)} required={true}/>
+            <Input label="Password" placeholder="Password" value={password} type="password" onChange={this.handlePasswordInput.bind(this)} required={true}/>
+            <Button label="LOG IN" onClick={this.loginUser.bind(this)} type="primary"/>
+          </FormContainer>
+        </div>
+      );
   }
 }
 
